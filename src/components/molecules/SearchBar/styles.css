@@ -1,0 +1,20 @@
+.custom-input-container {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 2px 4px;
+  border: 1px solid #d9e1e4;
+  border-left: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.custom-input-container:hover {
+  border-color: #a8b3bf; /* Slightly darker gray on hover */
+}
+
+.custom-input-container:focus-within {
+  border-color: #80bdff; /* Reactstrap-style blue border on focus */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Soft focus glow */
+}
