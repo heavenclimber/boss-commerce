@@ -19,7 +19,7 @@ export function useListCart() {
         const uniqueProductIds = [...new Set(allProductIds)];
 
         const productDetailPromises = uniqueProductIds.map((id) =>
-          getProductDetail(id)
+          getProductDetail(id || 0)
         );
         const allProductDetails = await Promise.all(productDetailPromises);
 
@@ -31,11 +31,11 @@ export function useListCart() {
         const enrichedCarts: ICartObj[] = res.map((cart) => ({
           ...cart,
           products: cart.products.map(({ productId, quantity }) => {
-            const productDetail = productMap.get(productId);
+            const productDetail = productMap.get(productId || 0);
             return productDetail
               ? { ...productDetail, quantity }
               : {
-                  id: productId,
+                  id: productId || 0,
                   title: "Unknown",
                   quantity,
                   price: 0,
