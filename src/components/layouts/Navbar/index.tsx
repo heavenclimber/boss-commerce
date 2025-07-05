@@ -6,7 +6,7 @@ import { RootState } from "@/store";
 import { AppBar, Toolbar } from "@mui/material";
 
 export const Navbar = () => {
-  const username = useSelector((state: RootState) => state.user.username);
+  const username = useSelector((state: RootState) => state.user.user?.username);
 
   return (
     <AppBar position="static" color="primary">
