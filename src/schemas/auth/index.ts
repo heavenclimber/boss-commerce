@@ -6,6 +6,12 @@ export interface ISignInForm {
 }
 
 export const signInSchema = yup.object({
-  username: yup.string().required("Username is required"),
-  password: yup.string().required("Password is required"),
+  username: yup
+    .string()
+    .min(8, "Username must be at least 8 characters")
+    .required("Username is required"),
+  password: yup
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .required("Password is required"),
 });

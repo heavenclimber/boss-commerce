@@ -27,6 +27,7 @@ import { deleteCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setUsername } from "@/store/userSlice";
+import { notification } from "@/contexts/SnackbarContext";
 
 const drawerWidth = 240;
 
@@ -42,6 +43,7 @@ export const Sidebar = () => {
   const handleSignOut = () => {
     dispatch(setUsername(null));
     deleteCookie("token");
+    notification({ type: "success", text: "Successfully logged out" });
     router.push("/sign-in");
   };
 
